@@ -1,0 +1,62 @@
+// src/constants/contract.js
+import { ethers } from "ethers";
+import CarbonCreditNFTArtifact from "../abi/CarbonCreditNFT.json";
+
+// Hardhat local default chain
+export const CHAIN_ID = 31337;
+export const RPC_URL = "http://127.0.0.1:8545";
+
+// Update mỗi lần deploy lại
+export const CONTRACT_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+
+// ABI
+export const CONTRACT_ABI = CarbonCreditNFTArtifact.abi;
+
+// -------- Providers --------
+export const getReadOnlyProvider = () => {
+  return new ethers.providers.JsonRpcProvider(RPC_URL);
+};
+
+export const getBrowserProvider = () => {
+  if (!window.ethereum) {
+    throw new Error("MetaMask is not installed");
+  }
+  return new ethers.providers.Web3Provider(window.ethereum);
+};
+
+// -------- Network guard --------
+export const assertCorrectNetwork = async (provider) => {
+  const network = await provider.getNetwork();
+  if (network.chainId !== CHAIN_ID) {
+    throw new Error(
+      `Wrong network. Please switch MetaMask to Hardhat Local (chainId ${CHAIN_ID}).`
+    );
+  }
+};
+
+// -------- Signer --------
+export const getSigner = async () => {
+  const provider = getBrowserProvider();
+  await provider.send("eth_requestAccounts", []);
+  await assertCorrectNetwork(provider);
+  return provider.getSigner();
+};
+
+// -------- Contract instances --------
+export const getCarbonCreditContract = async () => {
+  const signer = await getSigner();
+  return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+};
+
+export const getCarbonCreditContractReadOnly = () => {
+  const provider = getReadOnlyProvider();
+  return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, provider);
+};
+
+// -------- Helpers --------
+export const normalizeAddress = (value) => (value || "").trim();
+
+export const isValidAddress = (value) => {
+  const v = normalizeAddress(value);
+  return ethers.utils.isAddress(v);
+};
