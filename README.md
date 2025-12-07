@@ -18,17 +18,11 @@ This platform empowers organizations and individuals to participate in sustainab
 
 ## [🛠 Tech Stack](pplx://action/followup)
 
-- **[Smart Contracts](pplx://action/followup):** Solidity (Developed using Foundry)
-- **[Blockchain Network](pplx://action/followup):** Ethereum (Sepolia Testnet)
-- **[Oracles](pplx://action/followup):** Chainlink (For real-world data verification)
-- **[Frontend](pplx://action/followup):** React & JavaScript
-- **[Development Environment](pplx://action/followup):** Foundry
-
 ## Setup & Deployment
 ### Prerequisites:
 - **Node.js & npm**
 - **MetaMask** browser extension
-- **Hardhat/foundry** for Solidity development
+- **Hardhat** for Solidity development
 
 ### Steps:
 1. **Clone the repository**
