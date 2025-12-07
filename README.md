@@ -8,16 +8,6 @@ The **NFT-Powered Carbon Credit Management System** revolutionizes carbon credit
 
 This platform empowers organizations and individuals to participate in sustainable practices while maintaining a transparent and efficient carbon credit lifecycle.
 
-## [🎯 Key Features](pplx://action/followup)
-
-- **[Tokenization of Carbon Credits](pplx://action/followup):** Each verified carbon credit is represented as a unique, non-fungible token (NFT), ensuring authenticity and traceability.
-- **[Authorized Minting](pplx://action/followup):** Only designated members can mint new carbon credits, ensuring control and verification.
-- **[Trading Platform](pplx://action/followup):** Buy, sell, and retire NFTs, creating an efficient marketplace for carbon credits.
-- **[Real-World Data Integration](pplx://action/followup):** Uses oracles for accurate carbon credit verification and tracking.
-- **[Transparency Dashboard](pplx://action/followup):** Real-time information on credit lifecycle, ownership, and environmental impact.
-
-## [🛠 Tech Stack](pplx://action/followup)
-
 ## Setup & Deployment
 ### Prerequisites:
 - **Node.js & npm**
